@@ -12,4 +12,4 @@
 f([x,y]_L)=[f(x),f(y)]_M\qquad\text{для всех }x,y\in L.
 ```
 
-[Доказательство в Lean](https://github.com/MiskinAleksandr23/enveloping-isomorphism-solvable/blob/main/EnvelopingIsomorphism/StatementProof.lean#L12).
+[Теорема в Lean](https://github.com/MiskinAleksandr23/enveloping-isomorphism-solvable/blob/main/EnvelopingIsomorphism/StatementProof.lean#L18-L24).
