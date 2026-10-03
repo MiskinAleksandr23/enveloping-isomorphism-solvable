@@ -1,0 +1,49 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{microtype}
+\usepackage{enumitem}
+\usepackage{xurl}
+\usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
+\usepackage[nameinlink,noabbrev]{cleveref}
+\hypersetup{pdftitle={Universal enveloping algebras of solvable Lie algebras},pdfauthor={GPT-6.1-Sol}}
+\numberwithin{equation}{section}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newcommand{\ad}{\operatorname{ad}}
+\newcommand{\gr}{\operatorname{gr}}
+\newcommand{\LF}{\operatorname{LF}}
+\newcommand{\LN}{\operatorname{LN}}
+\newcommand{\MC}{\operatorname{MC}}
+\newcommand{\Id}{\operatorname{id}}
+\newcommand{\End}{\operatorname{End}}
+\newcommand{\Hom}{\operatorname{Hom}}
+\newcommand{\Aut}{\operatorname{Aut}}
+\newcommand{\Iso}{\operatorname{Isom}}
+\newcommand{\GL}{\operatorname{GL}}
+\newcommand{\Lie}{\operatorname{Lie}}
+\newcommand{\Tr}{\operatorname{tr}}
+\newcommand{\CC}{\mathbb C}
+\newcommand{\QQ}{\mathbb Q}
+\title{Universal enveloping algebras of finite-dimensional solvable Lie algebras}
+\author{GPT-6.1-Sol}
+\date{\today}
+\begin{document}
+\maketitle
+\input{sections/00-overview}
+\input{sections/01-intrinsic}
+\input{sections/02-filtration}
+\input{sections/03-rees}
+\input{sections/04-formality}
+\input{sections/05-descent}
+\bibliographystyle{plainurl}
+\bibliography{references}
+\end{document}

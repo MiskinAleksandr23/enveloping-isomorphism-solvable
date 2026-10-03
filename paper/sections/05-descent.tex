@@ -1,0 +1,342 @@
+\section{The first jet and marked descent}\label{sec:descent}
+
+Let $K\subseteq k$ be the coefficient field supplied by
+\cref{lem:coefficient-field}, with its chosen embedding into $\CC$.
+Write $L_K,M_K$ for the resulting Lie algebras.
+The marking of \cref{prop:graded-mark} is defined over $K$:
+\[
+ \varphi_0:\gr_FL_K\longrightarrow\gr_FM_K.
+\]
+Choose adapted bases whose graded classes correspond under $\varphi_0$, and
+write $w_i$ for their common weights. Thus $F^a$ is spanned by the vectors
+of weight at least $a$, and the marking is the identity in these graded
+bases. Fix $c$ with $F^{c+1}=0$. We retain the nilradical filtration,
+including $F^0g=g$, throughout this section.
+
+\subsection{Extracting the first jet in the actual completed algebra}
+
+Put
+\[
+ A=\CC[x_1,\ldots,x_n],\qquad B=A((h)),\qquad
+ E=\CC((h)),\qquad R=E[[t]].
+\]
+An element of $B[[t]]$ has the form
+\[
+ \sum_{r\geq0}t^r\sum_{q\geq q_r}h^q f_{rq}(x),
+ \qquad f_{rq}\in A.
+\]
+The lower bound $q_r$ may depend on $r$, and the coordinate degrees of
+$f_{rq}$ need not be bounded. For $n>0$, this function algebra strictly
+contains $E[x_1,\ldots,x_n][[t]]$: the inner series
+$\sum_{q\geq0}h^q x_1^q$ belongs to $B$ but has unbounded
+coordinate degree. For $n=0$, both algebras are simply $R$.
+The argument below extracts coefficients of coordinate
+degree zero and one before making any finite-dimensional construction;
+it never assumes polynomial dependence on the coordinates over $E$.
+
+A $t$-small vector field with coefficients in $B[[t]]$ acts as an
+$R$-linear derivation of this algebra. Coordinate differentiation preserves
+the lower Laurent bound; multiplication by any fixed coefficient shifts
+it by a finite amount. At fixed outer order, composition involves only
+finitely many outer indices. Its exponential is therefore defined
+$t$-adically: at order $t^r$, only its first $r$ powers contribute.
+The iterated derivation rule proves multiplicativity, and exponentiating
+the negative vector field gives the inverse. These observations justify
+the action on the indicated completed algebra, without requiring an
+action on a larger coordinate-adic completion.
+
+By \cref{prop:poisson-comparison}, we have an $R$-algebra isomorphism
+$\Psi:B[[t]]\to B[[t]]$, congruent to the identity modulo $t$, comparing
+the linear Poisson structures of the two Rees families. A common factor
+$h$ in these structures can be cancelled because $h\in R^\times$.
+We orient the comparison from source coordinate functions to target
+coordinate functions.
+
+\begin{lemma}\label{lem:first-jet}
+The matrix
+\[
+ P_{ai}=\left.\partial_a\Psi(x_i)\right|_{x=0}
+\]
+is defined over $R$, belongs to $\GL_n(R)$, specializes to the identity,
+and is a Lie isomorphism between the scalar-extended Rees families.
+No preservation of augmentation by $\Psi$ is required.
+\end{lemma}
+
+\begin{proof}
+Define augmentation $\epsilon:B[[t]]\to R$ and coordinate derivatives
+coefficientwise in both parameters. Evaluation of each polynomial at
+zero, and its coordinate derivatives, preserve its Laurent lower bound.
+Consequently $\epsilon$ is an algebra homomorphism and $\partial_a$ is an
+$R$-linear derivation, with
+\[
+ \epsilon(x_a)=0,\qquad \epsilon(\partial_a x_b)=\delta_{ab}.
+\]
+In particular $P_{ai}=\epsilon(\partial_a\Psi(x_i))$ is well-defined even
+with unbounded coordinate degree. The marking gives $P\equiv I\pmod t$.
+Writing $P=I+tS$, the geometric series $\sum_{j\geq0}(-tS)^j$ proves
+invertibility over $R$ itself.
+
+Let $C^{L,k}_{ij}(t)$ and $C^{M,r}_{ab}(t)$ denote the two Rees structure
+tables. For arbitrary completed functions,
+\[
+ \{f,g\}_M=\sum_{a,b,r}C^{M,r}_{ab}(t)x_r
+                         (\partial_a f)(\partial_b g).
+\]
+Its constant term vanishes. Moreover, the product rule gives
+\[
+ \epsilon\partial_s\{f,g\}_M
+ =\sum_{a,b}C^{M,s}_{ab}(t)
+                 \epsilon(\partial_a f)\epsilon(\partial_b g).
+\]
+Every term containing a second derivative still has the factor $x_r$
+and vanishes under $\epsilon$. This finite identity establishes the
+first-jet calculation directly in the completed algebra.
+
+Apply it to the Poisson identities
+\[
+ \{\Psi(x_i),\Psi(x_j)\}_M
+       =\sum_k C^{L,k}_{ij}(t)\Psi(x_k).
+\]
+If $c_i=\epsilon(\Psi(x_i))\in tR$, their constant terms give
+$\sum_k C^{L,k}_{ij}(t)c_k=0$: the constant part defines a character of
+the source. Their first derivatives give
+\begin{equation}\label{eq:first-jet-matrix}
+ \sum_{a,b}P_{ai}P_{bj}C^{M,s}_{ab}(t)
+       =\sum_k C^{L,k}_{ij}(t)P_{sk}.
+\end{equation}
+These are exactly the Lie-matrix equations. There is no need to translate
+the character to zero. Nor do we claim that $\Psi$ induces a map on the
+augmentation ideal modulo its square: that ideal need not be preserved.
+Invertibility came from the marking, rather than such a claim.
+\end{proof}
+
+\subsection{A regular arc with the prescribed graded special point}
+
+Let $E_t=E((t))$. With our decreasing-filtration convention,
+\[
+ [x_i,x_j]_{L_t}=\sum_r c^{L,r}_{ij}
+                   t^{w_r-w_i-w_j}x_r,\qquad
+ \delta_{L,t}(x_i)=t^{-w_i}x_i.
+\]
+The latter map identifies the generic Rees algebra with
+$L_K\otimes_K E_t$. The corresponding target scaling gives
+\[
+ f_{E_t}=\delta_{M,t}P\delta_{L,t}^{-1}:
+ L_K\otimes_K E_t\xrightarrow{\sim}
+ M_K\otimes_K E_t,
+ \qquad (f_{E_t})_{ri}=t^{w_i-w_r}P_{ri}.
+\]
+Every isomorphism of the original Lie algebras preserves the nilradical
+and its lower central series. Their previously established compatibility
+with scalar extension therefore makes $f_{E_t}$ filtered. Hence its entries
+with $w_r<w_i$ are zero. Since $R\hookrightarrow E_t$ is injective and
+$t$ is invertible in $E_t$, the same entries of $P$ are zero. More explicitly, the column of weight
+$w_i$ belongs to $F^{w_i}$, whose adapted basis has no vector of smaller
+weight. This makes the corresponding coefficient of $f_{E_t}$ exactly
+zero, rather than merely a series divisible by a power of $t$. Filtration
+preservation of $P$ has thus been deduced, not imposed on the Poisson
+comparison.
+
+On equal-weight blocks the scaling factors cancel. The block diagonal
+matrix
+\[
+ y(t)=\bigoplus_a P_{aa}(t)
+\]
+is a regular graded isomorphism over $R$, with $y(0)=\varphi_0$.
+Here $a$ indexes weights, rather than individual basis vectors. Each block
+is congruent to the identity modulo $t$, so its inverse and the inverse
+of the full determinant are regular. The graded bracket equations hold
+in $E_t$ and hence in $R$. The off-diagonal entries of $f_{E_t}$ may have poles;
+they are never specialized at zero.
+
+\begin{proposition}\label{prop:marked-descent}
+The marked Rees comparison above yields an isomorphism
+$L_K\simeq M_K$ over $K$ whose associated-graded map
+is the prescribed $\varphi_0$.
+\end{proposition}
+
+We first obtain a marked point over a finite Galois extension, then prove
+that its descent obstruction vanishes.
+
+The filtered isomorphism scheme
+$\mathcal I=\Iso_F(L_{\CC},M_{\CC})$ is affine of
+finite type. In adapted bases it is defined by the bracket equations,
+the forbidden-entry equations $f_{ri}=0$ for $w_r<w_i$, and
+$z\det f=1$ with one extra coordinate $z$. An invertible block triangular
+matrix has invertible diagonal blocks over every commutative coefficient
+ring, since their determinant product is a unit. Thus taking diagonal
+blocks defines a regular map on $\mathcal I$ and a homomorphism
+\[
+ \rho:\mathcal A=\Aut_F(M_{\CC})
+       \longrightarrow\Aut_{\gr}(\gr_FM_{\CC}).
+\]
+The inverse determinant of the diagonal matrix equals $z$, so this
+morphism is polynomial in the chosen affine coordinates.
+
+The point $f_{E_t}$ makes $\mathcal I$ nonempty. The Nullstellensatz supplies
+a complex point $f_*$; see \cite{StacksNullstellensatz}. Composition with
+$f_*$ identifies $\mathcal I$ with $\mathcal A$. The algebraic-group
+homomorphism theorem factors $\rho$ through a closed subgroup $H$, with
+$\mathcal A\to H$ faithfully flat. The smooth-group version suffices
+in characteristic zero by \cite[Theorems 1.72 and 3.23]{MilneAG2017}.
+Each complex point of $H$ lifts, because its fiber is nonempty and of
+finite type over an algebraically closed field. Consequently the graded
+image of $\mathcal I(\CC)$ is the closed coset
+\[
+ Y=H\gr(f_*)\subseteq
+ \Iso_{\gr}(\gr_FL_{\CC},\gr_FM_{\CC}).
+\]
+This does not assert surjectivity on rational points over $K$. In
+particular, one cannot replace the following specialization argument by
+the assertion that a generic isomorphism has a limit as an ordinary
+isomorphism: its off-diagonal entries need not have such a limit.
+Closedness is applied only after passing to the graded image, where
+the entire arc, including the inverse determinant coordinate, is regular.
+
+For completeness, the generic-point implication can be checked entirely
+in finite polynomial coordinates. Let $I$ define $\mathcal I$, and let
+$d$ be its diagonal-coordinate map. If a polynomial $q$ vanishes on
+$Y(\CC)$, then $q\circ d$ vanishes on all complex solutions of $I$.
+The Nullstellensatz gives $(q\circ d)^m\in I$ for some $m\geq1$.
+Evaluation at $f_{E_t}$ implies $q(d(f_{E_t}))^m=0$, hence $q(d(f_{E_t}))=0$ in the
+field $E_t$. This verifies extension-field containment without assuming
+that the defining ideal is radical.
+
+It follows that $q(y(t))\in R$ becomes zero in $E_t$, so it is already
+zero in $R$. Specializing gives $q(\varphi_0)=0$ in $E$. Since $\varphi_0$ and
+$q$ have complex coefficients, injectivity of $\CC\to E$ gives the same
+equality over $\CC$. Thus $\varphi_0\in Y(\CC)$ and a complex filtered
+isomorphism with precisely this mark exists.
+
+The scheme $X=\Iso_{F,\varphi_0}(L_K,M_K)$ is defined
+by finitely many equations over $K$ and has a complex point. Its
+coordinate algebra is nonzero. A maximal ideal has residue field finite
+over $K$ by \cite{StacksNullstellensatz}; enlarging that field to its
+normal closure gives a finite Galois extension $K_1/K$ and a point
+$f\in X(K_1)$. No algebraicity of $E$ or $E_t$ over $K$ was needed.
+
+\subsection{The unipotent kernel and finite Galois averaging}
+
+Let
+\[
+ U=\ker\bigl(\Aut_F(M_K)
+               \longrightarrow\Aut_{\gr}(\gr_FM_K)\bigr).
+\]
+For any commutative $K$-algebra $S$, an element $u\in U(S)$ satisfies
+$(u-I)F^i\subseteq F^{i+1}$ for every $i\geq0$, and therefore
+$(u-I)^{c+1}=0$. The condition includes the weight-zero quotient
+$M_K/N(M_K)$. Thus $U$ is a closed subgroup of a
+unitriangular group, with no general linear factor left on that quotient.
+
+Let $\mathcal A_r(S)$ be the endomorphisms raising the filtration by at
+least $r$, let $U_r(S)=\{u\in U(S):u-I\in\mathcal A_r(S)\}$, and let
+$D_r(S)=\operatorname{Der}_S(M_S)\cap\mathcal A_r(S)$.
+For $r\geq1$ these satisfy
+\[
+ U_1=U,\quad U_{c+1}=1,\qquad
+ \mathcal A_r\mathcal A_s\subseteq\mathcal A_{r+s}.
+\]
+The spaces $D_r$ are defined by linear equations over $K$,
+so they commute with scalar extension. Finite polynomial formulas give
+\begin{equation}\label{eq:finite-exp-log}
+ \exp D=\sum_{j=0}^c\frac{D^j}{j!},\qquad
+ \log u=\sum_{j=1}^c\frac{(-1)^{j+1}}j(u-I)^j.
+\end{equation}
+We justify, in particular, that the logarithm is a derivation. Put
+$T=u-I$ and $u^s=\sum_{j=0}^c\binom{s}{j}T^j$. At nonnegative integers
+$s$ this is an ordinary power of the Lie automorphism $u$, so
+$u^s[a,b]=[u^sa,u^sb]$. These bounded-degree polynomials agree
+identically: evaluation at sufficiently many integers has a Vandermonde
+determinant which is a nonzero integer, hence a unit in every $S$.
+Differentiating at zero gives the derivation rule for $\log u$, since
+$\binom{s}{j}'|_0=(-1)^{j-1}/j$.
+
+Conversely, the identity
+$D^m[a,b]=\sum_j\binom mj[D^ja,D^{m-j}b]$ proves that $\exp D$
+preserves brackets. Exponential and logarithm are inverse by the formal
+one-variable identities evaluated on nilpotent operators. All formulas
+are finite and natural in $S$. Thus $U$ is isomorphic as a scheme to the
+finite-dimensional affine space $D_1$; it is smooth and
+connected. Its group law need not become addition under this isomorphism.
+The common finite filtration is essential here: arbitrary individually
+nilpotent endomorphisms would not ensure that products of sufficiently
+many different operators vanish. Here every such product raises the same
+filtration beyond its last nonzero term. The inverse of $\exp D$ is
+$\exp(-D)$, which also preserves the filtration and has identity graded
+map. These facts establish that all corrections used below are actual
+Lie automorphisms, not merely invertible linear maps.
+
+\begin{lemma}\label{lem:unipotent-H1}
+For this group $U$ over any characteristic-zero field $K$, every finite
+Galois cocycle is a coboundary. In particular $H^1(K,U)=1$.
+\end{lemma}
+
+\begin{proof}
+Let $\Gamma=\operatorname{Gal}(K_1/K)$ and
+$a_{\sigma\tau}=a_\sigma\sigma(a_\tau)$ with $a_\sigma\in U(K_1)$.
+Assume inductively that its values lie in $U_r(K_1)$. In the vector space
+$\mathcal A_r/\mathcal A_{r+1}$ put
+\[
+ A_\sigma=[a_\sigma-I]=[\log a_\sigma].
+\]
+The equality holds because $2r\geq r+1$. Products of two differences
+vanish in this quotient, so
+$A_{\sigma\tau}=A_\sigma+\sigma A_\tau$. Define
+\[
+ D=\frac1{|\Gamma|}\sum_{\tau\in\Gamma}\log a_\tau
+       \in D_r(K_1),\qquad v=[D].
+\]
+Averaging gives $\sigma v=v-A_\sigma$. For $b_r=\exp(-D)$ the transformed
+cocycle $a'_\sigma=b_ra_\sigma\sigma(b_r)^{-1}$ has first-order class
+$-v+A_\sigma+\sigma v=0$. Hence it takes values in $U_{r+1}$.
+The transformed elements still satisfy the cocycle identity: in the
+product $a'_\sigma\sigma(a'_\tau)$ the adjacent factors
+$\sigma(b_r)^{-1}\sigma(b_r)$ cancel. Galois acts on the filtration
+and the defining derivation equations because both are defined over $K$.
+Thus the averaging and correction can be repeated with the same action.
+After the finitely many stages $r=1,\ldots,c$, the transformed cocycle
+is one. With $b=b_c\cdots b_1$,
+then
+\[
+ ba_\sigma\sigma(b)^{-1}=1,\qquad a_\sigma=b^{-1}\sigma(b).
+\]
+Every sum is finite and its denominator is invertible in characteristic
+zero. Finally, a torsor under this smooth finite-type group acquires a
+point over an algebraic closure, whose finitely many coordinates belong
+to a finite Galois extension. Thus the finite assertion proves the stated
+Galois-cohomological conclusion.
+\end{proof}
+
+\begin{proof}[Completion of the proof of \cref{prop:marked-descent}]
+The group $U$ acts on $X$ by postcomposition. For two marked points
+$f_1,f_2$, their difference $f_2f_1^{-1}$ lies in $U$. These formulas
+are regular and functorial, so the geometrically nonempty $X$ is a
+$U$-torsor. For its point $f\in X(K_1)$ set
+$a_\sigma=f(\sigma f)^{-1}$. The mark is defined over $K$, and therefore
+$a_\sigma\in U(K_1)$. Direct multiplication gives
+\[
+ a_\sigma\sigma(a_\tau)
+ =f(\sigma f)^{-1}(\sigma f)(\sigma\tau f)^{-1}
+ =a_{\sigma\tau}.
+\]
+By \cref{lem:unipotent-H1}, write $a_\sigma=b^{-1}\sigma(b)$.
+Since $\sigma f=a_\sigma^{-1}f$, we have
+$\sigma(bf)=\sigma(b)a_\sigma^{-1}f=bf$.
+All entries of $bf$ lie in $K$. Its determinant is nonzero, its bracket
+and filtration equations hold over $K$, and its graded map is $\varphi_0$
+because $b\in U$. This is the required marked isomorphism.
+\end{proof}
+
+\begin{proof}[Proof of \cref{thm:main}]
+Descend the given associative equivalence, including its inverse, to the
+coefficient field $K\subseteq k$ using \cref{lem:coefficient-field}.
+Solvability descends to the source model. Apply the intrinsic filtration
+argument over $K$, obtaining the actual marking of
+\cref{prop:graded-mark}. Embed $K$ into $\CC$, construct the compatible
+Rees families, and use \cref{prop:poisson-comparison,lem:first-jet} to
+obtain their identity-marked Lie matrix over $\CC((h))[[t]]$.
+\Cref{prop:marked-descent} gives a Lie isomorphism over $K$. Extending
+scalars along $K\subseteq k$ gives $L\simeq M$ over
+$k$. Thus the argument applies to every characteristic-zero ground field;
+no embedding of that entire field into $\CC$ is assumed.
+\end{proof}

@@ -1,0 +1,321 @@
+\section{From associative equivalence to Poisson equivalence}
+\label{sec:formality}
+
+We now work over $\CC$, using the embedding of the coefficient field
+chosen above. We write $h$ for the deformation parameter and $t$
+for the Rees parameter. In this section $W$ denotes the complex scalar
+extension of the common vector space of the two Rees families.
+Put $A=S_{\CC}(W)$ and write $\pi_L(t),\pi_M(t)$ for their linear
+Poisson tensors.  Their common specialization is denoted by $\pi_0$.
+For a complex vector space $X$, our conventions are
+\[
+ X((h))=X[[h]][h^{-1}],\qquad
+ E=\CC((h)),\qquad R=E[[t]],\qquad B=A((h)).
+\]
+The order is completion in $h$, localization, then completion in
+$t$.  Each $t$-coefficient has its own lower Laurent bound.  We do not
+require a bound independent of the $t$-degree.  In particular,
+When $W\ne0$, $B$ strictly contains $E[W]$; for $W=0$ both equal $E$.
+
+\begin{proposition}\label{prop:poisson-comparison}
+The marked Rees isomorphism of \cref{prop:rees-isomorphism} induces an
+$R$-algebra automorphism $\Psi$ of $B[[t]]$, congruent to the identity
+modulo $t$, such that
+\[
+ \Psi\bigl(\{f,g\}_{\pi_L(t)}\bigr)
+   =\{\Psi(f),\Psi(g)\}_{\pi_M(t)}
+ \qquad(f,g\in B[[t]]).
+\]
+\end{proposition}
+
+The proposition concerns the indicated completed function algebra,
+not merely finite polynomial inputs or unrelated finite-order
+approximations.  We prove it using affine formality and a complete
+filtered comparison theorem.
+
+\subsection*{Full cochains and their completed action}
+
+Use the shifted differential graded Lie algebras
+\[
+ P_{\mathrm{poly}}^p=A\otimes\Lambda^{p+1}W^*,\quad -1\le p\le\dim W-1,
+ \qquad
+ C_{\mathrm{all}}^p=\Hom_{\CC}(A^{\otimes(p+1)},A),\quad p\ge-1.
+\]
+All completions of these graded complexes are taken degreewise.
+The first has zero differential and the Schouten bracket; the second
+has the Gerstenhaber bracket and differential $[m,-]$, where $m$ is
+ordinary multiplication.  Both contain functions in degree $-1$ and
+vanish in lower degrees.  In degree zero, $C_{\mathrm{all}}^0=\End_{\CC}(A)$
+with its commutator bracket.  We normalize bivectors so that the first
+star commutator is $h$ times their Poisson bracket.
+
+The factorial-normalized Hochschild--Kostant--Rosenberg map sends a
+wedge of $q$ derivations to $1/q!$ times their alternating multilinear
+product.  It is a quasi-isomorphism into the \emph{full} Hochschild
+complex \cite{HKR1962}.  In the polynomial case this follows directly
+from the Koszul resolution of the diagonal.  Indeed, the elements
+$x_i\otimes1-1\otimes x_i$ in $A^e$ become independent polynomial
+variables after a change of coordinates, hence their Koszul complex
+resolves $A$ \cite{StacksKoszul}.  Applying $\Hom_{A^e}(-,A)$ gives zero
+differentials and the polyvector spaces.  The alternating comparison
+with the free bar resolution computes full Hochschild cohomology;
+its cochain composite with normalized HKR is the identity.  The degree
+signs between the bar differential and $[m,-]$ are absorbed into this
+comparison.
+
+Kontsevich's affine formality theorem supplies an $L_\infty$ morphism
+$\mathcal U$ from polynomial polyvectors to polynomial polydifferential
+cochains, with first component HKR
+\cite[\S\S4.6.2, 6.4 of the arXiv version]{Kontsevich2003}.
+We fix the morphism given by his affine graph construction. Its formulas preserve
+polynomials, and their real coefficients extend to $\CC$.  Composing
+with the strict inclusion into $C_{\mathrm{all}}$ gives an $L_\infty$
+quasi-isomorphism with the full target just described.
+
+Here are the elementary convergence facts we will use.  An element
+\[
+ F=\sum_{j\ge a}h^jF_j
+ \in\Hom_{\CC}(A^{\otimes q},A)((h))
+\]
+acts $E$-multilinearly on $B^q$.  On inputs with lower bounds $b_i$,
+the coefficient of $h^d$ sums over
+$j+j_1+\cdots+j_q=d$ with $j\ge a$ and $j_i\ge b_i$, a finite set.
+The same argument proves compatibility with compositions and brackets.
+The action is faithful, by evaluating on constant polynomial inputs.
+It is not an identification with all $E$-linear maps on $B$.
+After adjoining $t$, first split a fixed $t$-degree in finitely many
+ways, and then apply this Laurent argument.  Consequently identities
+between these completed operators extend from polynomial inputs by
+coefficientwise expansion, without any assumption that arbitrary
+linear maps are continuous.
+
+In particular, a Laurent series of unary cochains has a lower bound
+for the whole operator, rather than a bound chosen separately after
+seeing its input.  If two such operators have bounds $a,b$, their
+composition has bound $a+b$.  For an outer series
+$F=\sum_{r\ge0}t^rF_r$ acting on
+$f=\sum_{s\ge0}t^sf_s$, the coefficient of $t^n$ is
+$\sum_{r+s=n}F_r(f_s)$.  Its Laurent lower bound is the minimum of
+finitely many sums of bounds, hence is finite.  This explains why
+the bounds may vary with $r$, and why no exchange of the two
+completions is implicit.  The same reasoning applies to every finite
+arity occurring in the deformation complexes.
+
+\subsection*{Twisting before localization}
+
+Set $\alpha_0=h\pi_0$ and
+\[
+ \mu_{\star,0}=m+\sum_{j\ge1}\frac1{j!}\mathcal U_j(\alpha_0^{\otimes j}).
+\]
+The twisted components are
+\[
+ \mathcal U_n^{\alpha_0}(z_1,\ldots,z_n)
+ =\sum_{j\ge0}\frac1{j!}
+   \mathcal U_{n+j}(\alpha_0^{\otimes j},z_1,\ldots,z_n).
+\]
+Every additional base input increases $h$-order by one.  These sums
+therefore converge before localization, and the twisted differentials
+are $[\alpha_0,-]$ and $[\mu_{\star,0},-]$.  The twisted identities follow by
+comparing finite coefficients in the original identities.
+
+\begin{lemma}\label{lem:twisted-quasi-iso}
+The twisted linear component induces a quasi-isomorphism
+\[
+ \bigl(P_{\mathrm{poly}}((h)),[\alpha_0,-]\bigr)
+ \longrightarrow
+ \bigl(C_{\mathrm{all}}((h)),[\mu_{\star,0},-]\bigr).
+\]
+\end{lemma}
+\begin{proof}
+First form its cone over $\CC[[h]]$. Write $C$ for the underlying
+graded vector space of the ordinary HKR cone. Its underlying module
+is $C[[h]]$, with differential $d=d_0+O(h)$, and its reduction
+modulo $h$ is the acyclic HKR cone.  Choose a contracting homotopy
+$s_0$ for this vector-space complex and extend it coefficientwise.
+Then
+\[
+ \mathcal K=ds_0+s_0d=1+O(h)
+\]
+is invertible by a geometric series.  Since $d^2=0$, $\mathcal K$ and $\mathcal K^{-1}$
+commute with $d$.  Thus $s=s_0\mathcal K^{-1}$ satisfies $ds+sd=1$.  Every
+coefficient is finite: $\mathcal K-1$ increases $h$-order.  No polynomial
+degree bound on $s_0$ is needed.  Localizing this contraction gives a
+contraction of the Laurent cone, proving the assertion.
+\end{proof}
+
+The higher twisted components also extend to Laurent inputs: a fixed
+finite list of such inputs has a finite sum of lower bounds, while
+the number of base insertions still increases $h$-order.  Notice
+that quasi-isomorphism was proved for the completed cone \emph{before}
+inverting $h$.
+
+\subsection*{Complete filtered gauge reflection}
+
+Over $E$, form
+\[
+ D_P=t\bigl(P_{\mathrm{poly}}((h)),[\alpha_0,-]\bigr)[[t]],
+ \qquad
+ D_C=t\bigl(C_{\mathrm{all}}((h)),[\mu_{\star,0},-]\bigr)[[t]],
+\]
+with $F^r=t^r(-)[[t]]$, $r\ge1$.  These filtrations are separated and
+complete, start with the whole space, and satisfy
+$[F^r,F^s]\subset F^{r+s}$.  The twisted Taylor maps preserve sums of
+filtration degrees.  At a fixed $t$-degree $r$, their MC series uses
+at most $r$ non-base inputs and finitely many partitions of $r$;
+the remaining Laurent sums are already justified.
+
+On every $F^r$, the linear component is the product of copies of the
+map in \cref{lem:twisted-quasi-iso}, indexed by $t$-degrees at least $r$.
+Its cone is contractible by applying the preceding contraction to
+each coefficient.  Hence it is a quasi-isomorphism on \emph{every}
+filtration step.  All hypotheses of the complete filtered
+Dolgushev--Rogers theorem are now satisfied over the characteristic-zero
+field $E$ \cite[Theorem~2.2]{DolgushevRogers2015}.  We obtain a bijection
+on connected components of the completed MC simplicial sets.
+The theorem is applied to these $t$-positive objects, not directly to
+all Laurent polyvectors: positivity provides pronilpotence even
+though negative powers of $h$ occur.  The differentials are
+independent of $t$, so the coefficientwise contraction really
+preserves each $F^r$.  The shifted convention used in the cited
+theorem is obtained by shifting our complexes by one; it imposes no
+extra nonnegativity condition on our cochain degrees.
+
+For these DGLAs the components are gauge orbits under
+$\exp(F^1D^0)$.  Indeed, an MC one-simplex has the form
+$\beta(s)+ds\,\xi(s)$; its equation is the gauge differential equation.
+Modulo $t^r$, the time-ordered solution with identity initial value
+involves finitely many
+iterated integrals of polynomials in $s$, defined over any
+characteristic-zero field. Its uniqueness makes these solutions compatible
+as $r$ increases, and their limit gives one completed gauge element.
+A finite chain of one-simplices gives a product of these elements.
+Conversely a gauge
+exponential gives an MC path.  Degree $-1$ does not add a component
+to a one-simplex, because the interval has no nonzero two-forms.
+Thus we reflect genuine completed gauge equivalence, rather than
+choose unrelated equivalences in all finite quotients.
+
+For a differential $[a_0,-]$, the gauge action is characterized by
+\[
+ a_0+e^X\mathbin{\cdot}\beta
+   =e^{\ad X}(a_0+\beta).
+\]
+Equivalently the action on $\beta$ is
+$e^{\ad X}\beta-\sum_{j\ge0}(\ad X)^j([a_0,X])/(j+1)!$.
+We use this with $a_0=\alpha_0$ and $a_0=\mu_{\star,0}$, respectively.
+
+\subsection*{The actual associative comparison}
+
+Let $\star_L(t),\star_M(t)$ be the star products obtained from the
+same $\mathcal U$.  For a linear Poisson tensor, Kontsevich's
+linear-Poisson comparison gives
+\[
+ x\star y-y\star x=h[x,y]_t\qquad(x,y\in W),
+\]
+and its top polynomial-degree product is ordinary multiplication
+\cite[\S8.3.1 of the arXiv version]{Kontsevich2003}.  Universality and PBW triangularity
+therefore give an algebra isomorphism
+\[
+ I_L:U_h(L_t)\longrightarrow(A[t,h],\star_L),
+ \qquad I_L(x)=x,
+\]
+and similarly $I_M$.
+
+These are compatible family maps.  Their values on monomials are
+products of the corresponding linear generators.  A graph term of
+order $h^j$ for a linear Poisson tensor contributes $j$ linear
+coefficients and $2j$ derivatives, so it lowers total polynomial
+degree by $j$.  It vanishes when that resulting degree is negative.
+Thus each polynomial calculation is finite and polynomial in the
+structure constants, and works over $\CC[t,h]$.  Define
+\[
+ J_L=I_L\circ\operatorname{sym}_L,\qquad
+ J_M=I_M\circ\operatorname{sym}_M.
+\]
+They intertwine symmetric PBW products with star products, fix linear
+functions, and have the form $1+O(h)$.  Their inverses exist by
+the $h$-adic geometric series, with no negative $h$-powers.
+Consequently all four operators belong to
+$\End_{\CC}(A)[[h]][[t]]$.  Since the two brackets agree at zero,
+the same construction gives $J_L(0)=J_M(0)=J_0$.
+
+More explicitly, $J_L(x_{i_1}\cdots x_{i_q})$ is the average over
+permutations of the $q$ corresponding star factors.  Thus its value
+at the common special bracket is forced; no pointwise choice of an
+isomorphism remains.  Triangularity proves bijectivity by induction
+on polynomial degree, and the same induction works with polynomial
+$t$-coefficients.  Passing to series then uses the already defined
+coefficientwise action.  Ordinary PBW symmetrization is only a linear
+identification here.  It is $J_L$, and respectively $J_M$, that
+converts its transported product into the chosen star product.
+
+Write $T$ for the completed homogenized Rees comparison supplied by
+\cref{prop:Laurent-operator-bound}.  Its essential conclusion is
+\[
+ T\in1+t\End_{\CC}(A)((h))[[t]],\qquad
+ \operatorname{ord}_{h}(T_r)\ge-r(D-1),
+\]
+with the bound valid simultaneously on all polynomial inputs.
+Here $T_r$ is the coefficient of $t^r$, and $D$ is the finite
+ordinary PBW degree bound from the preceding section.  In symmetric
+coordinates a block from degree $a$ to degree $b$ is multiplied by
+$h^{a-b}$; the bound $b\le a+r(D-1)$ is precisely what gives the
+displayed estimate uniformly over all $a$.  This identification
+retains the actual original enveloping map, rather than introducing
+an abstract equivalence between deformation classes.  It intertwines
+the actual completed PBW products.  The identity on
+finite polynomial inputs extends to $B[[t]]$ by the finite-convolution
+argument above; no globally defined inverse degree-scaling map on
+$B$ is asserted.
+
+Now set
+\[
+ G=J_M T J_L^{-1}.
+\]
+This is an isomorphism from $\star_L$ to $\star_M$ on $B[[t]]$, and
+$G(0)=J_0\Id J_0^{-1}=\Id$.  For each $t$-degree, its coefficients
+are finite sums of compositions of uniformly bounded Laurent
+operators with nonnegative $h$-series.  Therefore
+\[
+ X=\log G\in t\End_{\CC}(A)((h))[[t]]=D_C^0.
+\]
+At outer degree $r$, the logarithm uses at most $r$ positive factors;
+this proves its existence in the stated operator algebra.  Its
+coefficients need not be polydifferential, which is why the full
+Hochschild target was necessary.
+
+If $m_L,m_M$ denote the completed star products, multiplicativity
+says
+\[
+ m_M=G\circ m_L\circ(G^{-1}\otimes G^{-1})
+      =e^{\ad X}m_L.
+\]
+The second identity follows by differentiating conjugation by
+$e^{sX}$; its infinitesimal action is the Gerstenhaber bracket.
+This supplies a target gauge equivalence relative to the common $\mu_{\star,0}$.
+
+\begin{proof}[Proof of \cref{prop:poisson-comparison}]
+Set $\beta_L=h(\pi_L(t)-\pi_0)$ and
+$\beta_M=h(\pi_M(t)-\pi_0)$.  They are MC elements of
+$D_P$.  Expansion of the twisted Taylor sums gives exactly
+\[
+ (\mathcal U^{\alpha_0})_*(\beta_L)=m_L-\mu_{\star,0},
+ \qquad
+ (\mathcal U^{\alpha_0})_*(\beta_M)=m_M-\mu_{\star,0}.
+\]
+Grouping terms by their base and positive-$t$ inputs produces the
+factors $1/j!$ and $1/n!$; all rearrangements are justified by the
+two coefficientwise convergence arguments.  Thus the constructed
+$G$ compares precisely these two MC images.  Injectivity on connected
+components reflects this equivalence to the source.
+
+A source gauge element is the exponential of a $t$-positive vector
+field with coefficients in $B[[t]]$.  Its action on functions is
+well-defined by Laurent convolution and $t$-adic convergence.
+The coefficientwise Leibniz rule implies that its exponential is
+an $R$-algebra automorphism, with inverse the opposite exponential,
+and it is the identity modulo $t$.  The source gauge equation gives
+the required Poisson intertwining for $h\pi_L(t)$ and
+$h\pi_M(t)$, with the direction reversed if necessary by inversion.
+Cancel the invertible scalar $h$ to obtain the assertion.
+\end{proof}

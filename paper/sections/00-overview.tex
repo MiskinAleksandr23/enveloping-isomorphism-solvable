@@ -1,0 +1,65 @@
+\section{Introduction}\label{sec:overview}
+
+\begin{theorem}\label{thm:main}
+Let $k$ be a field of characteristic zero. Let $L$ and
+$M$ be finite-dimensional Lie algebras over $k$, and suppose that
+$L$ is solvable. If there is an isomorphism of unital associative
+$k$-algebras
+\[
+ \Phi:U_k(L)\longrightarrow U_k(M),
+\]
+then $L$ and $M$ are isomorphic as Lie algebras over $k$.
+\end{theorem}
+
+We identify a Lie algebra with its image in its enveloping algebra, using the
+Poincar\'e--Birkhoff--Witt theorem. For a Lie ideal $J\subseteq g$,
+the notation $U(g)J$ means the two-sided ideal it generates. Thus
+$U(g)/U(g)J=U(g/J)$. Write $N(g)$
+for the nilradical, and use the convention
+\[
+ \gamma_1N=N,\qquad \gamma_{r+1}N=[N,\gamma_rN].
+\]
+
+The proof separates the information supplied by the associative isomorphism
+from the deformation argument needed to turn it into a Lie isomorphism.
+First, we prove that $M$ is solvable and normalize $\Phi$ at the
+augmentation. Locally nilpotent inner derivations then identify the ideal
+$U(L)[N,N]$ intrinsically. In its metabelian quotient, locally
+finite inner derivations identify both the polynomial algebra on
+$N/[N,N]$ and the quotient $L/N$. Taking the linear part at the
+augmentation gives an actual graded Lie isomorphism
+\[
+ \varphi_0:\gr_FL\longrightarrow\gr_FM,
+ \qquad F^0L=L,\quad
+ F^rL=\gamma_rN(L)\quad(r\geq1),
+\]
+whose enveloping map is the associated graded of the normalized $\Phi$.
+
+Next, the corresponding Rees Lie algebras are two polynomial families with
+the same graded special fibre. Their enveloping algebras are isomorphic by
+a map equal to the identity at that fibre. After a separate homogenization
+parameter $h$ is introduced, this map has a uniform Laurent bound on
+each coefficient of the Rees parameter $t$. This precise bound allows its
+use as a gauge transformation in the full Hochschild complex. Affine
+formality reflects the resulting equivalence to the linear Poisson
+structures of the two Lie families.
+
+Finally, the first derivative at the origin of the Poisson equivalence
+produces a Lie isomorphism over a Laurent-series field. Its graded part is
+a regular arc specializing to $\varphi_0$. The image of the filtered
+isomorphism scheme on the associated graded is a closed coset. Therefore
+the fibre with mark $\varphi_0$ is nonempty. Its automorphism group is
+unipotent, and an explicit finite Galois averaging argument descends a
+marked isomorphism to the original coefficient field.
+
+Only finitely many coefficients of the Lie brackets and of $\Phi$ and
+$\Phi^{-1}$ are used to define the data. We can consequently carry out the
+complex formality argument after embedding a finitely generated
+characteristic-zero coefficient field into $\CC$, and descend the result
+before extending back to $k$.
+
+The order of the two formal operations is essential: one first completes in
+$h$, then inverts $h$, and only afterwards completes in $t$.
+The relevant completed coefficient spaces have the form
+$X[[h]][h^{-1}][[t]]$. No lower bound in $h$ uniform in the
+outer $t$-degree is required.

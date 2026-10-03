@@ -1,0 +1,337 @@
+\section{Rees families and Laurent bounds}\label{sec:rees}
+
+We first record a reduction that can be applied to the original pair,
+before augmentation normalization or any choice of filtration.
+
+\begin{lemma}\label{lem:coefficient-field}
+The given isomorphism $\Phi_{\mathrm{raw}}:U_k(L)\simeq U_k(M)$
+is the scalar extension of an isomorphism
+$\Phi_{K,\mathrm{raw}}:U_{K}(L_K)\simeq U_{K}(M_K)$ over a
+subfield $K\subseteq k$ finitely generated over $\QQ$. If $L$
+is solvable, so is $L_K$. The field $K$ embeds in $\CC$.
+\end{lemma}
+
+\begin{proof}
+Choose finite ordered bases $x_1,\ldots,x_a$ and $y_1,\ldots,y_b$.
+Take all coefficients in their two bracket tables and in the finite PBW
+expansions of $\Phi_{\mathrm{raw}}(x_i)$ and $\Phi_{\mathrm{raw}}^{-1}(y_j)$. If the corresponding
+supports are $S_i$ and $T_j$, this uses at most
+\[
+ a^3+b^3+\sum_i|S_i|+\sum_j|T_j|
+\]
+scalars. Let $K$ be the field they generate over $\QQ$. The same
+bracket tables define Lie algebras over $K$: their identities are
+reflected by the inclusion into $k$. Their scalar extensions recover
+the original algebras.
+
+The evaluation maps from the smaller enveloping algebras to the original
+ones are injective by PBW, since they preserve the indexed ordered
+monomials. The displayed generator images therefore satisfy the defining
+relations over $K$, and define algebra maps in both directions.
+Their inverse identities are likewise reflected by evaluation. This
+descends the specified $\Phi_{\mathrm{raw}}$, including its inverse. Solvability
+descends through the injective Lie map from $L_K$ to
+$L$ with scalars restricted.
+There is no need to descend an infinite list of enveloping elements:
+the finitely many generator images determine each algebra map.
+Including the inverse images ensures that the resulting map over $K$
+is an equivalence, rather than merely a homomorphism whose scalar
+extension is the desired forward map.
+
+Finally, embed a finite transcendence basis of $K/\QQ$ as an
+algebraically independent complex family. Extend that embedding across
+the remaining finite algebraic extension into $\CC$.
+\end{proof}
+
+We may apply the preceding intrinsic argument over $K$. A Lie
+isomorphism obtained there will extend to $k$; no embedding of $k$
+in $\CC$ is needed. We henceforth rename the $K$-models $L,M$ and their equivalence
+$\Phi_{\mathrm{raw}}$. Normalize this descended map as in \cref{lem:augmentation}
+and again denote it by $\Phi$. The character used in that
+normalization belongs to $K$: its values are constant PBW
+coefficients already included in $K$. All adapted choices
+and the marking $\varphi_0$ are now made over $K$.
+
+\subsection{The polynomial families}
+
+Choose bases $x_1,\ldots,x_n$ and $y_1,\ldots,y_n$ adapted to the
+recovered filtrations and matched by the recovered graded isomorphism $\varphi_0$.
+Write $w_i\geq0$ for the common weights. With
+$\mathcal F^qU(M)$ denoting the span of PBW monomials of
+weight at least $q$, the recovered marking gives
+\begin{equation}\label{eq:rees-leading}
+ \Phi(x_i)-y_i\in\mathcal F^{w_i+1}U(M),\qquad
+ \Phi^{-1}(y_i)-x_i\in\mathcal F^{w_i+1}U(L).
+\end{equation}
+These follow from \cref{prop:graded-mark}, rather than being additional assumptions on the
+original isomorphism. The bracket coefficients satisfy
+$c_{ij}^p\ne0\Rightarrow w_p\geq w_i+w_j$, and similarly for
+$M$. Distinguish the weight
+$w(\alpha)=\sum_iw_i\alpha_i$ from the ordinary degree
+$|\alpha|=\sum_i\alpha_i$.
+Concretely, choose vector-space sections of the finitely many graded
+pieces and lift a homogeneous basis through them. Use $\varphi_0$
+to choose the corresponding target basis. These are linear
+splittings, with no assertion that either splitting preserves brackets.
+The filtration is the span of basis vectors of weight at least
+its index. Thus $[F^pL,F^qL]\subseteq F^{p+q}L$ gives the
+displayed support condition. The degree-zero part and the
+zero-dimensional case are included.
+
+Define the free $K[t]$-module $L_t$ by
+\begin{equation}\label{eq:rees-bracket}
+ [x_i,x_j]_t=\sum_{p:c_{ij}^p\ne0}
+ c_{ij}^p t^{w_p-w_i-w_j}x_p.
+\end{equation}
+All exponents are nonnegative. After extending to $K((t))$, the
+diagonal map $\delta_L(x_i)=t^{-w_i}x_i$ preserves this bracket:
+\[
+ \delta_L([x_i,x_j]_t)
+ =\sum_pc_{ij}^pt^{-w_i-w_j}x_p
+ =[\delta_L(x_i),\delta_L(x_j)].
+\]
+Its restriction to the polynomial module is injective. Hence Jacobi
+is reflected from the original scalar-extended Lie algebra.
+Construct $M_t$ similarly. At $t=0$ exactly the
+equal-weight terms survive, giving the common graded Lie algebra
+$g_0$; at $t=1$ the original algebras return.
+
+We use PBW over $K[t]$, and later over $K[t,h]$. For these free
+Lie modules, ordered monomials span by commutator rewriting. Mapping
+to the enveloping algebra over the fraction field, field PBW shows
+that every finite relation between these monomials has zero
+coefficients. Thus they are a basis over the polynomial ring, and
+localization is injective. This argument does not presuppose the
+injectivity it establishes. Symmetrization is triangular with
+diagonal one for ordinary degree, so it and its inverse preserve
+the ordinary degree filtration.
+
+\begin{proposition}\label{prop:rees-isomorphism}
+There is a $K[t]$-algebra isomorphism
+\[
+ \Phi_t:U_{K[t]}(L_t)\simeq U_{K[t]}(M_t)
+\]
+whose zero specialization is the identity under the fixed marking.
+If $\Phi(x_i)=\sum_\alpha a_{i\alpha}y^\alpha$, then
+\begin{equation}\label{eq:rees-map}
+ \Phi_t(x_i)=\sum_\alpha
+ a_{i\alpha}t^{w(\alpha)-w_i}y^\alpha.
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+Filteredness makes all nonzero terms in \eqref{eq:rees-map}
+polynomial. After Laurent scalar extension the formula is
+$U(\delta_M)^{-1}\Phi U(\delta_L)$, so it preserves the relations.
+Injective localization reflects these relations to the polynomial
+envelope. Applying the same construction to $\Phi^{-1}$ gives a
+polynomial inverse; the inverse identities can again be checked
+after localization. By \eqref{eq:rees-leading},
+$\Phi_t(x_i)=y_i+tQ_i(t)$ for an actual polynomial element
+$Q_i(t)\in U_{K[t]}(M_t)$. The zero specialization fixes
+every marked generator and therefore the whole envelope.
+\end{proof}
+
+Let $W$ be the common coordinate vector space and $A_K=S_K(W)$.
+In symmetric PBW coordinates put
+\[
+ \Psi_t=\operatorname{sym}_{M_t}^{-1}\Phi_t\operatorname{sym}_{L_t},
+ \qquad \Psi_t=\sum_{r\geq0}t^r\Psi_r,\qquad \Psi_0=\Id.
+\]
+Here coefficient extraction defines $\Psi_r\in\End_K(A_K)$;
+each fixed polynomial input has a polynomial output in $t$.
+The map intertwines the two transported enveloping products,
+not necessarily ordinary commutative multiplication.
+
+\subsection{Homogenization and the degree estimate}
+
+Introduce an independent parameter $h$, with
+$U_h(L_t)$ defined by
+$xy-yx=h[x,y]_t$. This is the envelope of the bracket
+multiplied by $h$ and has the same PBW basis. Inverting
+$h$ gives the algebra isomorphism
+\[
+ \theta_{h,L}:U_h(L_t)[h^{-1}]
+ \longrightarrow U(L_t)[h,h^{-1}],
+ \qquad x_i\longmapsto h x_i.
+\]
+Both sides of its defining relation map to $h^2[x_i,x_j]_t$.
+Consequently
+\begin{equation}\label{eq:rees-homogenized}
+ \Phi_{t,h}=\theta_{h,M}^{-1}\Phi_t\theta_{h,L},
+ \qquad
+ \Phi_{t,h}(x_i)=\sum_\alpha
+ a_{i\alpha}t^{w(\alpha)-w_i}h^{1-|\alpha|}y^\alpha.
+\end{equation}
+This construction initially concerns finite polynomials. Its scalar
+extension to $K((h))[t]$ preserves the outer variable $t$.
+
+Symmetrization of $n$ generators scales by exactly $h^n$.
+Thus the block of $\Psi_r$ from $S^n(W)$ to $S^m(W)$ is
+multiplied under \eqref{eq:rees-homogenized} by
+\begin{equation}\label{eq:rees-block}
+ h^{n-m}.
+\end{equation}
+Indeed, every ordered product in the normalized permutation average
+has $n$ factors, and hence acquires the same input multiplier.
+Inverse scaling contributes $h^{-m}$ to its output component.
+This establishes the exact identity in symmetric coordinates;
+an estimate in ordered PBW coordinates alone would not identify
+the operator used below.
+Choose $D\geq1$ bounding the ordinary PBW degrees of all terms in
+the images of basis generators under both $\Phi$ and $\Phi^{-1}$.
+The finite bases and finite PBW supports ensure such a $D$ exists.
+
+\begin{lemma}\label{lem:uniform-excess}
+For every $n,r\geq0$,
+\[
+ \Psi_r(S^n(W))\subseteq\bigoplus_{m\leq n+r(D-1)}S^m(W).
+\]
+The same bound holds for the coefficients of the inverse comparison.
+\end{lemma}
+
+\begin{proof}
+Work in the actual algebra $B_t=U_{K[t]}(M_t)$,
+with its ordinary PBW filtration $B_{t,\leq d}$.
+This filtration is multiplicative over $K[t]$.
+The corrections in $\Phi_t(x_i)=y_i+tQ_i(t)$ belong to
+$B_{t,\leq D}$: subtracting a linear generator and reweighting
+its coefficients by powers of $t$ cannot increase this degree bound.
+
+Introduce an auxiliary central variable $z$ and consider
+$y_i+zQ_i(t)$ in $B_t[z]$. In a product of $n$ factors, a
+coefficient of $z^s$ selects $s$ corrections and has degree at most
+\[
+ (n-s)+sD=n+s(D-1).
+\]
+Apply this estimate to the finite symmetrization average of the
+input monomial. Inverse target symmetrization is $K[t]$-linear
+and degree-nonincreasing, so it preserves this bound.
+
+Finally evaluate $z=t$. The contribution of a $z^s$ coefficient
+to $t^r$ has residual polynomial degree $r-s$, and therefore
+$s\leq r$. Its spatial degree is at most $n+r(D-1)$.
+This proves the assertion; interchange source and target for
+the inverse. Throughout, multiplication remains the genuine
+$t$-dependent multiplication in $B_t$.
+\end{proof}
+
+The estimate bounds degree \emph{excess} uniformly over every input
+degree at fixed $r$. Its dependence on $r$ is essential.
+
+\subsection{The completed operator}
+
+Extend coefficients along a fixed embedding $K\hookrightarrow\CC$,
+and now write $A=S_\CC(W_\CC)$ and $C=D-1$.
+For any complex vector space $X$ set
+\[
+ X((h))=
+ \left\{\sum_{d\geq B}h^dx_d:
+ B\in\mathbb Z,\ x_d\in X\right\},\qquad
+ E=\CC((h)),\quad R=E[[t]].
+\]
+There is no finite-dimensionality restriction on the coefficient
+span. For example $\sum_{j\geq0}h^jx^j$ belongs to
+$\CC[x]((h))$ but not to $E[x]$.
+Our function space is
+$\mathcal A=A((h))[[t]]$: each $t$-coefficient has its own
+Laurent lower bound.
+
+\begin{proposition}\label{prop:Laurent-operator-bound}
+The finite comparison \eqref{eq:rees-homogenized} defines an element
+\[
+ T=\Id+\sum_{r\geq1}t^rT_r
+ \in\mathcal E:=\End_\CC(A)((h))[[t]],
+ \qquad \operatorname{ord}_h T_r\geq-rC,
+\]
+where the bound holds on the whole coefficient endomorphism.
+It acts invertibly and $R$-linearly on $\mathcal A$, intertwining
+the two completed homogenized PBW products.
+\end{proposition}
+
+\begin{proof}
+Define $T_{r,d}$ on $S^n(W_\CC)$ to be the output component
+of $\Psi_r$ in degree $n-d$, interpreted as zero for $n-d<0$.
+This is an endomorphism of $A$, since each input has finitely
+many homogeneous components. The uniform-excess lemma gives
+$T_{r,d}=0$ whenever $d<-rC$. Hence
+$T_r=\sum_{d\geq-rC}h^dT_{r,d}$ is a Laurent series of
+endomorphisms. Formula \eqref{eq:rees-block} identifies it with
+the actual homogenized comparison. On an input of degree at most
+$n$, its Laurent support is contained in $[-rC,n]$.
+
+For $F=\sum_{d\geq B}h^dF_d$ and
+$x=\sum_{j\geq b}h^jx_j$, define
+\[
+ [h^q](Fx)=\sum_{d=B}^{q-b}F_d(x_{q-d}).
+\]
+This is finite and has output lower bound $B+b$.
+Outer convolution gives
+$[t^r](Tx)=\sum_{p=0}^rT_p(x_{r-p})$.
+If $x_s$ has lower bound $b_s$, the latter has lower bound
+$\min_{0\leq p\leq r}(b_{r-p}-pC)$.
+These formulas give the asserted scalar-linear action and preserve
+operator composition. With $G=T-\Id$, the inverse
+$\sum_{s\geq0}(-G)^s$ exists because $G$ has positive $t$-order.
+
+The homogenized PBW products have nonnegative $h$-exponents
+as whole binary cochains. More explicitly, a multiplication block
+from $S^a(W)\otimes S^b(W)$ to $S^m(W)$ acquires the factor
+$h^{a+b-m}$ under homogenization, and the ordinary PBW filtration
+gives $m\leq a+b$. Thus each coefficient is a binary cochain on
+all of $A$, with lower $h$-bound zero, and the products extend
+by the same convolution. On finite polynomial inputs,
+intertwining follows from the algebra isomorphism
+\eqref{eq:rees-homogenized}. Extracting coefficients gives equality
+of the binary coefficient maps; convolution then proves it for
+all inputs in $\mathcal A$.
+\end{proof}
+
+This is an explicit action of coefficient series, not an
+identification with all linear or continuous maps on $\mathcal A$.
+The action is faithful: evaluate it on constant inputs $a\in A$,
+then extract first the $t$-coefficient and then the
+$h$-coefficient to recover each endomorphism applied to $a$.
+The same argument detects equality of multilinear coefficient
+families. It does not require constant inputs to span the completed
+module algebraically over $R$.
+Likewise spatial scaling is only used on finite polynomials:
+substituting $x\mapsto h^{-1}x$ in
+$\sum_{j\geq0}h^jx^{2j}$ would produce an inadmissible
+series with no Laurent lower bound. The uniform estimate is what
+constructs the completed comparison. No lower bound uniform in
+$t$-degree is needed; $\sum_{r\geq0}t^rh^{-r}a$ is allowed.
+The order of completion is therefore part of the definition.
+Equivalently, $\mathcal A$ is the inverse limit of its finite
+$t$-jets, each with coefficients in $A((h))$. It is complete
+and separated for the $t$-adic filtration. There is no condition
+requiring the coefficients of an element of $A((h))$ to
+lie in a common finite-dimensional subspace of $A$.
+
+The full Hochschild space of arity $q$ is
+$C^q(A,A)=\Hom_\CC(A^{\otimes q},A)$, including $C^0(A,A)=A$.
+We use precisely
+$C^q(A,A)((h))[[t]]$, with cohomological degree $q-1$.
+For a cochain lower bound $B$ and input bounds $b_1,\ldots,b_q$,
+the coefficient at $h^d$ is a finite sum over nonnegative
+indices with total $d-B-\sum_i b_i$; its output lower bound is
+$B+\sum_i b_i$. These estimates justify evaluation and composition
+in these spaces, without enlarging them to arbitrary maps on
+completed functions.
+
+Finally,
+\[
+ \log T=\sum_{s\geq1}\frac{(-1)^{s+1}}s(T-\Id)^s
+ \in t\mathcal E.
+\]
+At outer order $r$, only $s\leq r$ occur, with finitely many
+positive compositions of $r$; their Laurent bounds add to $-rC$.
+For $1\leq s\leq r$ there are exactly
+$\binom{r-1}{s-1}$ such compositions, so this is a finite sum of
+Laurent series at every outer order. The inverse series obeys
+the same lower bound, by the identical calculation without
+the rational logarithm coefficients.
+Thus the logarithm is a legitimate full Hochschild gauge operator.
+It is not claimed to be a derivation of one fixed product.
+The next section applies formality to the resulting associative
+comparison.
